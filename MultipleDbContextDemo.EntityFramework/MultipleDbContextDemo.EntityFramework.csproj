@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,6 +15,8 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,13 +55,13 @@
       <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.DynamicFilters, Version=3.0.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.DynamicFilters.3.0.1\lib\net40\EntityFramework.DynamicFilters.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="JetBrains.Annotations, Version=11.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.11.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
@@ -180,9 +183,13 @@
     <Compile Include="MigrationsSecond\201506241348220_SecondContextMigration1.Designer.cs">
       <DependentUpon>201506241348220_SecondContextMigration1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MigrationsSecond\202112160234085_v1.cs" />
-    <Compile Include="MigrationsSecond\202112160234085_v1.Designer.cs">
-      <DependentUpon>202112160234085_v1.cs</DependentUpon>
+    <Compile Include="MigrationsSecond\202112200722146_add_product.cs" />
+    <Compile Include="MigrationsSecond\202112200722146_add_product.designer.cs">
+      <DependentUpon>202112200722146_add_product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MigrationsSecond\202112210234041_v3.cs" />
+    <Compile Include="MigrationsSecond\202112210234041_v3.designer.cs">
+      <DependentUpon>202112210234041_v3.cs</DependentUpon>
     </Compile>
     <Compile Include="MigrationsSecond\Configuration.cs" />
     <Compile Include="Migrations\201506241335343_FirstDbMigration1.cs" />
@@ -207,8 +214,11 @@
     <EmbeddedResource Include="MigrationsSecond\201506241348220_SecondContextMigration1.resx">
       <DependentUpon>201506241348220_SecondContextMigration1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MigrationsSecond\202112160234085_v1.resx">
-      <DependentUpon>202112160234085_v1.cs</DependentUpon>
+    <EmbeddedResource Include="MigrationsSecond\202112200722146_add_product.resx">
+      <DependentUpon>202112200722146_add_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigrationsSecond\202112210234041_v3.resx">
+      <DependentUpon>202112210234041_v3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506241335343_FirstDbMigration1.resx">
       <DependentUpon>201506241335343_FirstDbMigration1.cs</DependentUpon>
@@ -221,7 +231,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

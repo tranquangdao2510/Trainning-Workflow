@@ -187,8 +187,17 @@
     <Compile Include="Categories\Dtos\CreateCategory.cs" />
     <Compile Include="Categories\Dtos\UpdateCategory.cs" />
     <Compile Include="Categories\ICategoryAppService.cs" />
+    <Compile Include="Config\MappingProfile.cs" />
+    <Compile Include="Config\MyConfig.cs" />
     <Compile Include="MultipleDbContextDemoApplicationModule.cs" />
     <Compile Include="MultipleDbContextDemoAppServiceBase.cs" />
+    <Compile Include="Products\Dtos\CreateProductInput.cs" />
+    <Compile Include="Products\Dtos\GetCategoryInput.cs" />
+    <Compile Include="Products\Dtos\GetInerJoinProductInput.cs" />
+    <Compile Include="Products\Dtos\ProductDto.cs" />
+    <Compile Include="Products\Dtos\UpdateProductInput.cs" />
+    <Compile Include="Products\IProductAppService.cs" />
+    <Compile Include="Products\ProductAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\TestAppService.cs" />
     <Compile Include="Services\ITestAppService.cs" />
