@@ -1,11 +1,6 @@
 ﻿using Abp.Application.Services;
-using Abp.Application.Services.Dto;
 using MultipleDbContextDemo.Products.Dtos;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MultipleDbContextDemo.Products
 {
@@ -24,5 +19,18 @@ namespace MultipleDbContextDemo.Products
 
         // lamba
         int CreateProduct(CreateProductInput input);
+
+        int UpdateProduct(UpdateProductInput input);
+
+        int DeleteProduct(int proId);
+
+        List<GetInerJoinProductInput> GetInnerJoinProduct();
+
+        List<GetInerJoinProductInput> GetLeftJoinProduct();
+
+        // linq
+        List<GetInerJoinProductInput> GetInerJoinProdductLinq();
+
+        List<GetInerJoinProductInput> GetLeftJoinProdductLinq();
     }
 }
